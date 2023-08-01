@@ -23,7 +23,7 @@ void main(){
   interElement([1, 2, 3, 4, 5]);
 }
 
-/** 印出輸入的內容 */
+/// 印出輸入的內容
 void poLog(dynamic text){
   if (kDebugMode) {
     print(text);
