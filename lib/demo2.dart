@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-void main(){
+void main() {
   /// if - else if範例
   handleCase();
 
@@ -27,28 +27,28 @@ void main(){
 }
 
 /// 印出console
-void poLog(dynamic message){
-  if(kDebugMode){
+void poLog(dynamic message) {
+  if (kDebugMode) {
     print(message);
   }
 }
 
 /// if - else if範例
-void handleCase(){
+void handleCase() {
   poLog("-----if - else if範例-----");
 
   var a = 5;
-  if(a > 10){
+  if (a > 10) {
     poLog("a 大於 10!");
-  } else if(a >= 0 && a <= 10){
+  } else if (a >= 0 && a <= 10) {
     poLog("a 介於 0到10之間!");
-  } else{
+  } else {
     poLog("a小於0");
   }
 }
 
 /// 三元運算子
-void ternary(){
+void ternary() {
   poLog("-----三元運算子------");
 
   var age = 16;
@@ -58,49 +58,51 @@ void ternary(){
 
 /// for迴圈
 /// 第一種
-void forCircle(){
+void forCircle() {
   poLog("-----for 迴圈 1-----");
 
-  for(var i = 0; i< 6; i++){
+  for (var i = 0; i < 6; i++) {
     poLog("Current value is $i.");
   }
 }
 
 /// 第二種
-void forCircle2(){
+void forCircle2() {
   poLog("-----for 迴圈 2-----");
 
   var elements = [1, 2, 3, 4, 5];
-  for(var element in elements){
+  for (var element in elements) {
     poLog("Current value is $element");
   }
 }
 
 /// while 迴圈
-void whileCircle(){
+void whileCircle() {
   var a = 5;
-  while(a > 0){
+  while (a > 0) {
     poLog("while 迴圈 $a");
-    a--;///等同於a = a -1(將a-1的意思)
+    a--;
+
+    ///等同於a = a -1(將a-1的意思)
   }
 
   poLog("while迴圈結束");
 }
 
 /// do-while  迴圈
-void whileDoCircle(){
+void whileDoCircle() {
   var i = 5;
-  do{
+  do {
     poLog("do while迴圈:$i");
     i--;
-  }while(i > 0);
+  } while (i > 0);
 }
 
 /// Switch 能夠依照不同的狀態進行不同的處理，有點類似於if但更為直觀並擁有更好的效能。
-void performActionBasedOnInput(){
+void performActionBasedOnInput() {
   var fruit = 'apple';
-  
-  switch(fruit){
+
+  switch (fruit) {
     case 'banana':
       poLog("You have a banana");
       break;
@@ -111,7 +113,9 @@ void performActionBasedOnInput(){
       poLog("You hava an apple");
       break;
 
-    default:  /// 若沒有符合的case就會執行default
+    default:
+
+      /// 若沒有符合的case就會執行default
       poLog("Wow, I don;t know what fruit it is.");
   }
 }
@@ -125,9 +129,7 @@ void accessListElement() {
     poLog("元素：$element");
   } catch (e) {
     poLog("捕獲例外：$e");
-  }finally{
+  } finally {
     poLog("finally!例外處理結束!");
   }
 }
-
-
