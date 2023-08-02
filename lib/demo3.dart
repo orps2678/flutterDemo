@@ -20,7 +20,7 @@ void main() {
 
   /// Mixin
   poLog("------Mixin------");
-  var coder = new Flutter('Tracy', 23);
+  var coder = Flutter('Tracy', 23);
   poLog(coder.introduce());
 
   /// extends People
@@ -41,30 +41,22 @@ class Video {
 
   /// *** Dart 訪問權限 ***
   /// Public, Private：在成員名稱或變數名稱前加上下劃線 _，就表示這個成員或變數是私有的。私有成員只能在同一個庫（library）中訪問，無法在庫的外部訪問。
-  late String _title; //標題
+  late String title; //標題
   late String _description; //影片資訊
   late String _publishTime; //上傳時間
   late String _thumbnail; //縮圖網址
   late String _url; //影片網址
 
-  Video(this._title, this._description, this._publishTime, this._thumbnail,
+  Video(this.title, this._description, this._publishTime, this._thumbnail,
       this._url);
 
   Video.onlyUrl(this._url);
 
   Video.onlyTitle(String title) {
-    this._title = title;
+    title = title;
   }
 
-  //getter
-  String get title => this._title;
-
-  String get url => this._url;
-
-  //setter
-  set title(String title) {
-    this._title = title;
-  }
+  String get url => _url;
 }
 
 /// 印出console
