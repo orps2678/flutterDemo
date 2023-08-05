@@ -13,8 +13,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page',
-        key: UniqueKey(),),
+      home: MyHomePage(
+        title: 'Flutter Demo Home Page',
+        key: UniqueKey(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -37,18 +39,46 @@ class MyHomePageState extends State<MyHomePage> {
         title: const Text("Row example"),
         leading: const Icon(FontAwesomeIcons.dragon),
       ),
-      body: const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: const Column(
         children: <Widget>[
-          Icon(FontAwesomeIcons.google, color: Colors.red,),
-          Expanded(
-            child: Text(
-                'Google有限公司是源自美國的跨國科技公司，為Alphabet Inc.的子公司，業務範圍涵蓋網際網路廣告、網際網路搜尋、雲端運算等領域，開發並提供大量基於網際網路的產品與服務，其主要利潤來自於AdWords等廣告服務。'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                FontAwesomeIcons.google,
+                color: Colors.red,
+              ),
+              Expanded(
+                child: Text(
+                  'Google有限公司是源自美國的跨國科技公司，為Alphabet Inc.的子公司，業務範圍涵蓋網際網路廣告、網際網路搜尋、雲端運算等領域，開發並提供大量基於網際網路的產品與服務，其主要利潤來自於AdWords等廣告服務。',
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.arrow_forward_ios),
+                onPressed: null,
+              )
+            ],
           ),
-          IconButton(
-            icon: Icon(Icons.arrow_forward_ios),
-            onPressed: null,
-          )
+          SizedBox(height: 16), // 添加间隔，这里使用了SizedBox
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                FontAwesomeIcons.apple,
+                color: Colors.green,
+              ),
+              Expanded(
+                child: Text(
+                  '蘋果公司（Apple Inc.）是美國科技公司，成立於1977年1月3日，總部位於加利福尼亞州的庫比蒂諾市。以設計、製造及銷售消費電子產品、軟體及服務，其最知名的硬體產品有iPhone智慧型手機、iPad平板電腦、Mac個人電腦、iPod多媒體播放器、Apple手錶及Apple TV等。',
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.arrow_forward_ios),
+                onPressed: null,
+              )
+            ],
+          ),
+          // You can add more repeated Rows here
         ],
       ),
     );
