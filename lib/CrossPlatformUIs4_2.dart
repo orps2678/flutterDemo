@@ -36,6 +36,12 @@ void main() {
 
   /// 4.2.10 Set的用法
   testSet();
+
+  /// 4.2.11 Map的用法
+  testMap();
+
+  /// 4.2.12 fold的用法
+  testFold();
 }
 
 /// 4.2.1 Dart語言基礎知識
@@ -197,6 +203,43 @@ void testSet() {
   /// assert斷言 在測試環境跟開發環境中 => 他會去檢查是否條件為true
   /// 若結果為false則會中斷程式並且拋出錯誤AssertionError，注意! 他在正式生產環境中將被忽略也不會導致程式中斷。
   assert(companies.contains('google'));
+}
+
+/// 3.2.11 Map的用法
+void testMap() {
+  Map<String, String> companies = {};
+  companies['one'] = "sina";
+  companies['two'] = "baidu";
+  companies['three'] = "sou";
+  companies['four'] = "google";
+
+  /// 輸出鍵的值
+  poLog("---輸出鍵的值---");
+  for (var key in companies.keys) {
+    poLog("鍵的輸出：$key");
+  }
+
+  /// 輸出鍵對應的值
+  poLog("---輸出鍵對應的值---");
+  for (var value in companies.values) {
+    poLog("值的輸出：$value");
+  }
+
+  ///輸出鍵 - 值
+  poLog("---輸出鍵 - 值---");
+  companies.forEach((key, value) => poLog("鍵：$key 值 : $value"));
+}
+
+/// 4.2.12 fold的用法
+void testFold() {
+  List<int> score = [1, 3, 5, 7, 9];
+  var amount = 0;
+
+  /// 0 = 總和的初始值, previousValue = 現在的累加值, element = 個別的值 => 每次都進行累加
+  amount = score.fold(0, (previousValue, element) => previousValue + element);
+
+  /// output : 25
+  poLog(amount);
 }
 
 void poLog(dynamic logText) {
