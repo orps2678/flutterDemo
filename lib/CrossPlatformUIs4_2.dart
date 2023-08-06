@@ -11,6 +11,13 @@ void main(){
   String? def;
   poLog("This str length is ${getLength("")}");
   poLog(getLength(def ?? 'default'));
+
+  /// 4.2.3 final和const使用區別
+  finalConst();
+
+  /// 4.2.4 dynamic和var的區別
+  dynamicAndVar();
+
 }
 
 /// 4.2.1 Dart語言基礎知識
@@ -51,6 +58,34 @@ int getLength(String? str){
 
   return str.length;
 }
+
+/// 4.2.3 final和const使用區別
+void finalConst (){
+  const address = 'tsunami wu';
+
+  /// const now = DateTime.now();compile error
+  /// 每次調用時，會取得當前的時間，每次都會變動，所以在編譯時期無法確定他的值是不變的，並且隨時都在改變，所以不能放在const
+  final now = DateTime.now();
+  /// final的值可以在運行時確定，但在被初始化後不能再更改，這使得final比const更家靈活 => 因為他允許你使用在編譯時無法確定的值
+  /// now = DateTime.parse("2023-08-06");
+  /// 這樣會導致Can't assign to the final variable 'now'.因final已經初始化 所以不能在將now的值做改變
+}
+
+/// 4.2.4 dynamic 和var的區別
+void dynamicAndVar(){
+  var a = 1;
+  a = 2;
+  /// a = '哈哈'; var 被賦予變數類型後，變數類型無法在改變
+  /// a 已經被賦予為整數 => 不可再被改變成String
+
+  dynamic b = 1;
+  b = 2;
+  b = 2.443;
+  b = "嘿嘿";
+  b = [1, "啊哈", 3.14];
+  /// dynamic 可以在被賦予值後，再次地去改變型態
+}
+
 
 
 void poLog(dynamic logText){
